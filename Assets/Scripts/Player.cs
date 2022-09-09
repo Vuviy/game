@@ -10,10 +10,11 @@ public class Player : MonoBehaviour
     Animator anims;
     public VectorValue pos;
     //int missionId = 5;
+    public int money = 0;
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
         transform.position = pos.initialValue;
         rb = GetComponent<Rigidbody2D>();
         anims = GetComponent<Animator>();
