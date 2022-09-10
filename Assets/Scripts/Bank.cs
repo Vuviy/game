@@ -67,16 +67,20 @@ public class Bank : MonoBehaviour
     public void TakeMoney()
     {
         int summ = int.Parse(gameObject.name);
+        if(summ == 200)
+        {
+            PlayerPrefs.SetInt("missionDone", 1);
+        }
         if (!PlayerPrefs.HasKey("playerMonye"))
         {
             PlayerPrefs.SetInt("playerMonye", summ);
-            player.money = summ;
+            //player.money = summ;
         }
         else
         {
             int monye = PlayerPrefs.GetInt("playerMonye") + summ;
             PlayerPrefs.SetInt("playerMonye", monye);
-            player.money = monye;
+            //player.money = monye;
         }
 
         pinPanel.SetActive(false);

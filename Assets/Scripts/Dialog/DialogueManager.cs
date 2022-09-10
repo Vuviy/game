@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     public Animator startAnim;
 
     public int m = 2;
+    public bool missionDone = false;
 
     //public Player player;
 

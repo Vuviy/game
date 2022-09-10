@@ -10,11 +10,12 @@ public class Player : MonoBehaviour
     Animator anims;
     public VectorValue pos;
     //int missionId = 5;
-    public int money = 0;
+    public int money;
+    public bool missionDone;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {  
         transform.position = pos.initialValue;
         rb = GetComponent<Rigidbody2D>();
         anims = GetComponent<Animator>();
@@ -25,7 +26,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Flip();
+
+     money = PlayerPrefs.HasKey("playerMonye") ? PlayerPrefs.GetInt("playerMonye") : 0;
+     missionDone = PlayerPrefs.HasKey("missionDone") ? true : false;
+
+    Flip();
         if (Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0)
         {
             anims.SetInteger("State", 1);
